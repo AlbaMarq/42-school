@@ -1,0 +1,174 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww13580\viewh9360\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \ul \ulc0 COMANDOS SHELL
+\f1\b0 \ulnone \
+ \
+pwd -> print working directory\
+ls -> list content\
+ls -la -> extended list content\
+cd -> change directory\
+man \'91command\'92 -> manual of a command\
+\
+\
+
+\f0\b \ul GIT\
+
+\f1\b0 \ulnone \
+albmarqu@c1r10s5 Shell_00 % ssh-keygen\
+albmarqu@c1r10s5 Shell_00 % cd ~/.ssh\
+albmarqu@c1r10s5 .ssh % cat id_rsa.pub\
+\
+Mi clave:\
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkakiGo1e6HGnA3yGEG/3iSPsxYG5QxrQsinhtg4r/pO7uw3g64fRSavQ+Zz6k7WRh2l9Kl7wILMNJrApHWZhvbLN+zwQcBulJ7k5CRhPJiNIwhcmRRtGA6RE0SpCLv5kspLjLCHwP1I8vXGZy3f/yZqWfSPQSc7F2Ov3Xpi81HL+UU6DLSK8M0zrHpfXnvh9AvBtksMkIQad2g+tsjQb/QCvMkCmvjII9TPi3iQWfRW7UqBYNYniRqLJx4vW9frWjWU398ac3BgKDB3EDNF409BwWfEOjGE8UJOEj89EXQ4qNWUb0loCXXlU6Omx2N8hkTTr0xPZnrW1L501tnbmTAY7QAWs+KWiYOeMhexcP4t8eSYY4i5t5CCOOvA4NsHd8Qa6dztk78A/Qjbu674k35Xdpb+g9N94SuZE3yntLy4C/ncWpce0riqLLbZ+Y6uacNevYft3VJ7TARQnEESwNKKzUfBvHwzBEvG1rhy9nlzwSQIxPw3txq9w/8dZ8Gzk= albmarqu@c1r10s5.42malaga.com\
+\
+git add archivo\
+git add . -> a\'f1ade la carpeta\
+git add * -> a\'f1ade lo que hay en la carpeta
+\f0\b \
+
+\f1\b0 git status\
+git commit -m \'93comentario\'94\
+git push\
+
+\f0\b  \
+\
+CHMOD\
+
+\f1\b0 d: directorio\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+r: de Read o Leer\
+w: de Write o Escribir\
+x: de Execute o Ejecutar
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\f1\b0 u: user\
+g: group\
+o: other
+\f0\b \
+\
+\
+VIM\
+
+\f1\b0 vim archivo\
+Tecla I para escribir\
+Tecla esc para salir de escribir\
+Escribir :w para guardar\
+Escribir :x o :wq para guardar y salir\
+Escribir :q! Para salir sin guardar
+\f0\b \
+\
+\
+\
+\ul EJERCICIOS\ulnone \
+\
+\
+Ex00\
+
+\f1\b0 albmarqu@c1r10s5 ex00 % touch z\
+albmarqu@c1r10s5 ex00 % cat z\
+\
+\
+
+\f0\b Ex01\
+
+\f1\b0 albmarqu@c1r10s5 ex01 % touch testShell00\
+albmarqu@c1r10s5 ex01 % nano testShell00\
+Le pongo 40 caracteres\
+albmarqu@c1r10s5 ex01 % chmon u-w testShell00\
+albmarqu@c1r10s5 ex01 % chmod g+x testShell00\
+albmarqu@c1r10s5 ex01 % chmod o+x testShell00\
+albmarqu@c1r10s5 ex01 % touch -t 202306012342 testShell00\
+Comprobar con ls -l\
+Comprimir: tar -cf testShell00.tar testShell00\
+\
+\
+
+\f0\b Ex02
+\f1\b0 \
+albmarqu@c1r13s2 ex02 % mkdir test0\
+albmarqu@c1r13s2 ex02 % chmod g-x test0\
+albmarqu@c1r13s2 ex02 % chmod g-r test0\
+albmarqu@c1r13s2 ex02 % touch -t 202306012047 test0\
+albmarqu@c1r13s2 ex02 % touch test1\
+albmarqu@c1r13s2 ex02 % chmod u+x test1\
+albmarqu@c1r13s2 ex02 % chmod g-r test1\
+albmarqu@c1r13s2 ex02 % chmod g+x test1\
+albmarqu@c1r13s2 ex02 % vim test1\
+albmarqu@c1r13s2 ex02 % touch -t 202306012146 test1\
+albmarqu@c1r13s2 ex02 % mkdir test2\
+albmarqu@c1r13s2 ex02 % chmod u-w test2\
+albmarqu@c1r13s2 ex02 % chmod g-r-x test2\
+albmarqu@c1r13s2 ex02 % chmod o-x test2\
+albmarqu@c1r13s2 ex02 % touch -t 202306012245 test2\
+albmarqu@c1r13s2 ex02 % touch test3\
+albmarqu@c1r13s2 ex02 % chmod u-w test3\
+albmarqu@c1r13s2 ex02 % chmod g-r test3\
+albmarqu@c1r13s2 ex02 % vim test3\
+albmarqu@c1r13s2 ex02 % ln test3 ../../test32\
+albmarqu@c1r13s2 ex02 % touch test4\
+albmarqu@c1r13s2 ex02 % vim test4\
+albmarqu@c1r13s2 ex02 % chmod o-r+x test4\
+albmarqu@c1r13s2 ex02 % touch -t 202306012343 test4\
+albmarqu@c1r5s4 ex02 % ln test3 test5\
+albmarqu@c1r13s2 ex02 % ln -s test0 test6\
+albmarqu@c1r13s2 ex02 % chmod -h 777 test6\
+albmarqu@c1r13s2 ex02 % touch -t 202306012220 -h test6\
+\
+\
+
+\f0\b Ex03
+\f1\b0 \
+\
+Ya gener\'e9 la clave antes\
+albmarqu@c1r13s2 ex03 % cat ~/.ssh/id_rsa.pub > id_rsa_pub\
+\
+\
+
+\f0\b Ex04
+\f1\b0 \
+\
+albmarqu@c1r13s2 ex04 % touch midLS\
+albmarqu@c1r13s2 ex04 % vim midLS\
+Dentro copio:\
+	#!/bin/sh\
+	git log \'97format=\'91%H\'92 -n5\
+albmarqu@c1r13s2 ex04 % chmod u+x midLS\
+albmarqu@c1r13s2 ex04 % ./midLS\
+\
+\
+
+\f0\b Ex05
+\f1\b0 \
+\
+touch git_commit.sh\
+vim git_commit.sh\
+Dentro copio:\
+	#!/bin/sh\
+	git log \'97format=\'91%H\'92 -n5\
+chmod u+x git_commit.sh\
+./git_commit.sh\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\f0\b Ex07
+\f1\b0 \
+\
+albmarqu@c1r5s4 ex07 % cp a b\
+albmarqu@c1r5s4 ex07 % patch b sw.diff\
+Para comprobarlo, otro tiene que tener lo mismo que sw.diff\
+albmarqu@c1r5s4 ex07 % diff a b > otro \
+}
