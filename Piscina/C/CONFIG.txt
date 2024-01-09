@@ -1,0 +1,44 @@
+
+HEADER VIM
+
+
+albmarqu@c1r13s2 ~ % cd ~/.vim
+albmarqu@c1r13s2 .vim % mkdir plugin
+albmarqu@c1r13s2 .vim % cd ~/.vim/plugin
+
+albmarqu@c1r13s2 ~ % cd Desktop/ALBA/Piscina/CONFIG/42header/plugin
+albmarqu@c1r13s2 plugin % mv stdheader.vim /Users/albmarqu/.vim/plugin
+
+albmarqu@c1r13s2 ~ % touch .zshrc
+albmarqu@c1r13s2 ~ % vim .zshrc
+Dentro copio:
+	USER=albmarqu
+	MAIL=albmarqu@student.42malaga.com
+	export USER
+	export MAIL
+
+albmarqu@c1r13s2 plugin % source ~/.zshrc
+
+Por si acaso:
+albmarqu@c1r13s2 ~ % vim .vimrc
+Dentro copio:
+	let g:user42 = 'albmarqu'
+	let g:mail42 = 'albmarqu@student.42malaga.com'
+
+Para usarlo:
+Dentro del vim en el archivo que queremos:
+:Stdheader
+
+
+NORMINETTE
+
+
+albmarqu@c1r13s2 ~ % python3 -m pip install --upgrade pip setuptools --user
+python3 -m pip install norminette
+
+Para usarla:
+En la carpeta donde tengo el archivo que quiero comprobar:
+> norminette
+O también:
+> norminette filename.[c/h]
+
