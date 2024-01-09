@@ -1,0 +1,253 @@
+ex00: cd Desktop/ALBA/Piscina/C/C03/ex00
+----
+
+#include <stdio.h>
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+/*
+int main(void)
+{
+    char s1[] = "hola";
+    char s2[] = "hola";
+    int x = 0;
+
+    x = ft_strcmp(s1, s2);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex01: cd Desktop/ALBA/Piscina/C/C03/ex01
+----
+
+#include <stdio.h>
+
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+/*
+int main(void)
+{
+    char s1[] = "hola";
+    char s2[] = "hocaa";
+    int n = 2;
+    int x = 0;
+
+    x = ft_strncmp(s1, s2, n);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex02: cd Desktop/ALBA/Piscina/C/C03/ex02
+----
+
+#include <stdio.h>
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
+}
+/*
+int main(void)
+{
+    char s1[15] = "hola";
+    char s2[] = ", que tal?";
+
+    ft_strcat(s1, s2);
+    printf("%s", s1);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex03: cd Desktop/ALBA/Piscina/C/C03/ex03
+----
+
+#include <stdio.h>
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
+}
+/*
+int main(void)
+{
+    char s1[15] = "hola";
+    char s2[] = ", que tal?";
+    int nb = 4;
+
+    ft_strncat(s1, s2, nb);
+    printf("%s", s1);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex04: cd Desktop/ALBA/Piscina/C/C03/ex04
+----
+
+#include <stdio.h>
+
+unsigned int	ft_strlen(char *str)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (str[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	find_len;
+	int	i;
+	int	j;
+	int	igual;
+
+	find_len = ft_strlen(to_find);
+	i = 0;
+	igual = 0;
+	if (find_len == 0)
+		return (str);
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (str[i + j] == to_find[j])
+		{
+			igual++;
+			if (igual == find_len - 1)
+			{
+				return (str + i);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
+/*
+int main(void)
+{
+    char str[] = "holac, como estas?";
+    char find[] = "casa";
+    char *str2;
+
+    str2 = ft_strstr(str, find);
+    printf("%s\n", str2);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex05: cd Desktop/ALBA/Piscina/C/C03/ex05
+----
+
+#include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	dest_len;
+	unsigned int	src_len;
+
+	i = 0;
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	if (dest_len >= size)
+		return (src_len + size);
+	while (src[i] != '\0' && i < size - dest_len - 1)
+	{
+		dest[dest_len + i] = src[i];
+		i++;
+	}
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
+}
+/*
+int main(void)
+{
+    char dest[] = "hola";
+    char src[] = ", que tal?";
+    int size = 6;
+    int x = 0;
+
+    x = ft_strlcat(dest, src, size);
+    printf("%s\n", dest);
+    printf("%d", x);
+    return (0);
+}
+*/

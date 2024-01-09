@@ -1,0 +1,462 @@
+ex00: cd Desktop/ALBA/Piscina/C/C02/ex00
+----
+
+#include <stdio.h>
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+/*
+int main(void)
+{
+    char src[] = "que tal?";
+    char dest[] = "hola";
+    
+    printf("Inicial: %s", dest);
+    ft_strcpy(dest, src);
+    printf("\nFinal: %s", dest);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex01: cd Desktop/ALBA/Piscina/C/C02/ex01
+----
+
+#include <stdio.h>
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (src[i] != '\0' && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+/*
+int main(void)
+{
+    char src[] = "Hola";
+    char dest[] = "";
+    int n = 6;
+    
+    ft_strncpy(dest, src, n);
+    printf("%s", dest);
+    return (0);
+}
+*/
+
+
+-----------------------------------------------------------
+ex02: cd Desktop/ALBA/Piscina/C/C02/ex02
+----
+
+#include <stdio.h>
+
+int ft_str_is_alpha(char *str)
+{
+    int i;
+    int val;
+
+    i = 0;
+    val = 1;
+    while (str[i] != '\0')
+    {
+        if (str[i] < 'A' || str[i] > 'Z')
+        {
+            if (str[i] < 'a' || str[i] > 'z')
+                return (0);
+        }
+        i++;
+    }
+    return (1);
+}
+/*
+int main(void)
+{
+    int x;
+    char str[] = "abc1d";
+    x = ft_str_is_alpha(str);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex03: cd Desktop/ALBA/Piscina/C/C02/ex03
+----
+
+#include <stdio.h>
+
+int ft_str_is_numeric(char *str)
+{
+    int i;
+    int val;
+
+    i = 0;
+    val = 1;
+    while (str[i] != '\0')
+    {
+        if (str[i] < '0' || str[i] > '9')
+            return (0);
+        i++;
+    }
+    return (1);
+}
+/*
+int main(void)
+{
+    int x;
+    char str[] = "123456789";
+    x = ft_str_is_numeric(str);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex04: cd Desktop/ALBA/Piscina/C/C02/ex04
+----
+
+#include <stdio.h>
+
+int t_str_is_lowercase(char *str)
+{
+    int i;
+    int val;
+
+    i = 0;
+    val = 1;
+    while (str[i] != '\0')
+    {
+        if (str[i] < 'a' || str[i] > 'z')
+            return (0);
+        i++;
+    }
+    return (1);
+}
+/*
+int main(void)
+{
+    int x;
+    char str[] = "abcz";
+    x = t_str_is_lowercase(str);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex05: cd Desktop/ALBA/Piscina/C/C02/ex05
+----
+
+#include <stdio.h>
+
+int	ft_str_is_lowercase(char *str)
+{
+	int	i;
+	int	val;
+
+	i = 0;
+	val = 1;
+	while (str[i] != '\0')
+	{
+		if (str[i] < 'A' || str[i] > 'Z')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/*
+int main(void)
+{
+    int x;
+    char str[] = "ABCZ";
+    x = ft_str_is_lowercase(str);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex06: cd Desktop/ALBA/Piscina/C/C02/ex06
+----
+
+#include <stdio.h>
+
+int	ft_str_is_printable(char *str)
+{
+	int	i;
+	int	val;
+
+	i = 0;
+	val = 1;
+	while (str[i] != '\0')
+	{
+		if (str[i] < 32 || str[i] > 126)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/*
+int main(void)
+{
+    int x;
+    char str[] = " ABÇCZ~";
+    x = ft_str_is_printable(str);
+    printf("%d", x);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex07: cd Desktop/ALBA/Piscina/C/C02/ex07
+----
+
+#include <stdio.h>
+
+char *ft_strupcase(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
+	return (str);
+}
+/*
+int main(void)
+{
+    char str[] = "a.bc2";
+    printf("Inicial: %s", str);
+    ft_strupcase(str);
+    printf("\nFinal: %s", str);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex08: cd Desktop/ALBA/Piscina/C/C02/ex08
+----
+
+#include <stdio.h>
+
+char *ft_strlowcase(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
+		i++;
+	}
+	return (str);
+}
+/*
+int main(void)
+{
+    char str[] = "A.BZ2";
+    printf("Inicial: %s", str);
+    ft_strlowcase(str);
+    printf("\nFinal: %s", str);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex09: cd Desktop/ALBA/Piscina/C/C02/ex09
+----
+
+#include <stdio.h>
+
+void	lower(char str1, char str2)
+{
+	if (str2 < '1' || str2 > 'z')
+		str1 = str1 - 32;
+	else if (str2 > '9' && str2 < 'A')
+		str1 = str1 - 32;
+	else if (str2 > 'Z' && str2 < 'a')
+		str1 = str1 - 32;
+}
+
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (i == 0 && (str[0] >= 'a' && str[0] <= 'z'))
+			str[0] = str[0] - 32;
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			if (str[i - 1] >= 'a' && str[i - 1] <= 'z')
+				str[i] = str[i] + 32;
+			else if (str[i - 1] >= '1' || str[i - 1] <= '9')
+				str[i] = str[i] + 32;
+		}
+		else if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			lower(str[i], str[i - 1]);
+		}
+		i++;
+	}
+	return (str);
+}
+/*
+int main(void)
+{
+    char str[] = "salut, comment tu vas ? 42Mots quarante-deux; cinquante+et+un";
+    printf("Inicial: %s", str);
+    ft_strcapitalize(str);
+    printf("\nFinal: %s", str);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex10: cd Desktop/ALBA/Piscina/C/C02/ex10
+----
+
+#include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+    unsigned int	i;
+    unsigned int    dest_len;
+    unsigned int    src_len;
+
+	i = 0;
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+    dest_len = ft_strlen(dest);
+    if (dest_len > 0)
+    {
+        dest[i] = '\0';
+    }
+    src_len = ft_strlen(src);
+	return (src_len);
+}
+/*
+int main(void)
+{
+    char src[] = "Hola";
+    char dest[] = "";
+    int size = 2;
+
+    printf("Inicial: %s", dest);
+    ft_strlcpy(dest, src, size);
+    printf("\nFinal: %s", dest);
+    return (0);
+}
+*/
+
+-----------------------------------------------------------
+ex11: cd Desktop/ALBA/Piscina/C/C02/ex11
+----
+
+#include <stdio.h>
+#include <unistd.h>
+
+void	ft_putstr_non_printable(char *str)
+{
+	int		i;
+	char	div_hex;
+	char	mod_hex;
+	char	*hex;
+
+	i = 0;
+	div_hex = 0;
+	mod_hex = 0;
+	hex = "0123456789abcdef";
+	while (*str != '\0')
+	{
+		if (*str < 32 || *str > 126)
+		{
+			div_hex = hex[*str / 16];
+			mod_hex = hex[*str % 16];
+			write(1, "\\", 1);
+			write(1, &div_hex, 1);
+			write(1, &mod_hex, 1);
+		}
+		else
+			write(1, &str[i], 1);
+		str++;
+	}
+}
+/*
+int main(void)
+{
+    char str[] = "Coucou\ntu vas bien ?";
+    ft_putstr_non_printable(str);
+    return (0);
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
