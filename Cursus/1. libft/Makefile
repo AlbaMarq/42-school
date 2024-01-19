@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 21:14:52 by albmarqu          #+#    #+#              #
-#    Updated: 2024/01/18 23:35:52 by albmarqu         ###   ########.fr        #
+#    Updated: 2024/01/19 20:05:04 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ FILES = ft_isalpha.c \
 		ft_strrchr.c \
 		ft_strncmp.c \
 		ft_memchr.c \
+		ft_memcmp.c \
 		ft_atoi.c
 
 OBJECTS = $(FILES:.c=.o)

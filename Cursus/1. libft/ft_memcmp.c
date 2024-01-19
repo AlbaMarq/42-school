@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 17:10:19 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/19 17:10:36 by albmarqu         ###   ########.fr       */
+/*   Created: 2024/01/19 20:03:56 by albmarqu          #+#    #+#             */
+/*   Updated: 2024/01/19 20:19:47 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
 
-int	ft_toupper(int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
-}
+	size_t			i;
+	unsigned char	*s11;
+	unsigned char	*s22;
 
-/*
-int main(void) 
-{
-    char miCaracter = 'A';
-	
-	printf("Función original: %c", toupper(miCaracter));
-	printf("Mi función: %c", ft_toupper(miCaracter));
-    
-	return 0;
+	i = 0;
+	s11 = (unsigned char *)s1;
+	s22 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (s11[i] != s22[i])
+			return (s11[i] - s22[i]);
+		i++;
+	}
+	return (0);
 }
-*/

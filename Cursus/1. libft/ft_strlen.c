@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/19 17:10:13 by albmarqu          #+#    #+#             */
+/*   Updated: 2024/01/19 17:11:26 by albmarqu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -11,6 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+/*
 int main(void)
 {
 	char str[] = "Hola";
@@ -20,3 +34,4 @@ int main(void)
 
     return (0);
 }
+*/

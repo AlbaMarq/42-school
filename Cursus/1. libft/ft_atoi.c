@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/19 16:52:25 by albmarqu          #+#    #+#             */
+/*   Updated: 2024/01/19 17:09:24 by albmarqu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <ctype.h>
 
 int	ft_atoi(const char *nptr)
 {
@@ -25,13 +38,4 @@ int	ft_atoi(const char *nptr)
 	}
 	num = num * sign;
 	return (num);
-}
-
-
-int main(void)
-{
-    char str[] = " ---+--+1234ab567";
-	printf("Funcion original: %c.\n", atoi(str));
-	printf("Mi funcion: %c", ft_atoi(str));
-    return (0);
 }
