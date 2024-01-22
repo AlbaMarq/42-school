@@ -6,13 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:10:11 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/19 17:30:56 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:05:51 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -35,20 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-
-/*
-int main(void)
-{
-	char dest[] = "hola";
-    char src[] = ", que tal?";
-    int size = 6;
-	int x = 0;
-
-	printf("Inicial: %s", dest);
-	printf("Funcion original: %c.\n", strlcat(dest, src, size));
-	printf("Mi funcion: %c", ft_strlcat(dest, src, size));
-	printf("\nFinal: %s", dest);
-
-    return (0);
-}
-*/

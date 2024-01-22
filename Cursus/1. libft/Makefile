@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 21:14:52 by albmarqu          #+#    #+#              #
-#    Updated: 2024/01/19 20:05:04 by albmarqu         ###   ########.fr        #
+#    Updated: 2024/01/22 19:48:04 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ FILES = ft_isalpha.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memmove.c \
+		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_toupper.c \
 		ft_tolower.c \
@@ -30,7 +31,13 @@ FILES = ft_isalpha.c \
 		ft_strncmp.c \
 		ft_memchr.c \
 		ft_memcmp.c \
-		ft_atoi.c
+		ft_strnstr.c \
+		ft_atoi.c \
+		ft_calloc.c \
+		ft_strdup.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c
 
 OBJECTS = $(FILES:.c=.o)
 

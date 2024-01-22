@@ -6,13 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:02:24 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/19 17:09:27 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:04:58 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
 
 int	ft_isalnum(int c)
 {
@@ -20,24 +18,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-
-/*
-int main(void) 
-{
-    char miCaracter = 'A';
-	
-	printf("Funcion original:");
-    if (isalnum(miCaracter))
-		printf("%c es un carácter alfanumérico.\n", miCaracter);
-	else
-		printf("%c no es un carácter alfanumérico.\n", miCaracter);
-	
-	printf("Mi funcion:");
-    if (ft_isalnum(miCaracter)) 
-        printf("%c es un carácter alfanumérico.\n", miCaracter);
-	else
-        printf("%c no es un carácter alfanumérico.\n", miCaracter);
-    
-	return 0;
-}
-*/
