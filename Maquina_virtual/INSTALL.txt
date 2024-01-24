@@ -1,0 +1,25 @@
+VIM:
+> sudo apt install vim
+
+Terminal terminator:
+> sudo apt install terminator
+
+GIT:
+> sudo apt install git
+
+NORMINETTE
+> python3 -m pip install --upgrade pip setuptools --user
+> python3 -m pip install norminette
+
+FRANCINETTE
+> sudo apt install curl
+> bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+
+PYTHON
+> sudo apt install pip
+
+DONET
+> sudo apt install dotnet-host
+> sudo apt install dotnet-host-7.0
+> sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
