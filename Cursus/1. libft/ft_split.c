@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:17:14 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/24 21:48:33 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:34:01 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,65 +48,90 @@ char	*ft_strdup(const char *s1)
 	return (dst);
 }
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*ss;
+	int		i;
+
+	i = 0;
+	if ((start + len) > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	ss = malloc((len + 1) * sizeof(char));
+	if (ss == NULL)
+		return (NULL);
+	while (s[start + i] && len > 0)
+	{
+		ss[i] = s[start + i];
+		len--;
+		i++;
+	}
+	ss[i] = '\0';
+	return (ss);
+}
+
 // ----------------------------------------------------------------------
 
-static int	count_c(const char *s, char c) // Como se delimita ?? Y si hay mas de un delimitador seguido ?? Y si el delimitador está al inicio o al final ??
+static size_t	count_words(const char *s, char c)
 {
-	int	i;
-	int	count;
+	int		i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
-	// Opcion 1: Cuento las palabras, mirando si lo siguiente es un delimitador
-	if (s[i] == c)
-		count++;
-	i++;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && s[i - 1] != c)
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		if (s[i] != c && s[i] != '\0')
 			count++;
-		i++;
+		while (s[i] != c && s[i] != '\0')
+			i++;
 	}
-
-	// Opcion 2: Cuento el numero de delimitadores
-	/*
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			count++;
-		i++;
-	}
-	*/
-
 	return (count);
 }
 
-static char	**alg(char const *s, char c, char **dst)
+static size_t	num_chars(const char *s, char c)
 {
 	int		i;
-	int		row;
-	int		col;
+	size_t	num;
 
 	i = 0;
-	row = 0;
-	col = 0;
-	while (s[i])
+	num = 0;
+	while (s[i] != '\0')
 	{
-		if (s[i] != c)
-		{
-			dst[row][col] = s[i];
-			row++;
-		}
-		else if (s[i] != c)
-		{
-			dst[row][col] = '\0';
-			row = 0;
-			col++;
-		}
+		if (s[i] == c)
+			num++;
 		i++;
 	}
-	dst[row][col] = '\0';
+	return (num);
+}
+
+static char	**split_rows(char const *s, char c, char **dst, size_t	row)
+{
+	size_t			i;
+	size_t			len;
+	unsigned int	start;
+
+	i = 0;
+	len = 0;
+	start = 0;
+	while (s[i] != '\0' && row > 0)
+	{
+		while (s[i] == c && s[i] != '\0')
+		{
+			start++;
+			i++;
+		}
+		while (s[i] != c && s[i] != '\0')
+		{
+			len++;
+			i++;
+		}
+		dst[row] = ft_substr(s, start, len);
+		row--;
+	}
 	return (dst);
 }
 
@@ -114,36 +139,40 @@ char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	int		i;
-	int		count;
+	size_t	count_word;
+	size_t	num_char;
 
 	i = 0;
-	count = 0;
-	//if (ft_strlen(s) == 0)
-		//return (ft_strdup("")); //Falla porque split devuelve ** y strdup solo *
-	count = count_c(s, c);
-	dst = malloc((strlen(s) + count + 1) * sizeof(char *));
+	count_word = count_words(s, c);
+	num_char = num_chars(s, c);
+	dst = malloc((count_word + 1) * sizeof(char *));
 	if (dst == NULL)
 		return (NULL);
-	dst = alg(s, c, dst);
+	dst = split_rows(s, c, dst, count_word);
 	return (dst);
 }
-
 
 int	main(void)
 {
 	char **tab;
-	char *s = "ahola que tala";
+	char *s = "holaaa que tala";
 	char c = 'a';
 	int	i = 0;
 
-	printf("Frase: %s \nSeparador: %c \nNumero de separadores: %d \n", s, c, count_c(s, c));
+	printf("Frase: %s \n", s);
+	printf("Separador: %c \n", c);
+	printf("Numero de separadores: %ld \n", num_chars(s, c));
+	printf("Numero de palabras: %ld \n", count_words(s, c));
 	printf("Array de frases separadas: \n");
 	tab = ft_split(s, c);
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-
+	// Imprimir palabras
+	for (int i = 0; *(tab + i); i++) {
+        printf("%s\n", *(tab + i));
+    }
+    // Liberar la memoria
+    for (int i = 0; *(tab + i); i++) {
+        free(*(tab + i));
+    }
+    free(tab);
 	return (0);
 }

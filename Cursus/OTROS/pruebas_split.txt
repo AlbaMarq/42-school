@@ -1,0 +1,157 @@
+DUDAS:
+
+	- Como se delimita ?? 
+	- Y si hay mas de un delimitador seguido ?? 
+	- Y si el delimitador está al inicio o al final ??
+
+-------------------------------------------------------------------------------------------------------------------
+
+BUCLES:
+
+	// Opcion 1: Cuento las palabras, mirando si lo siguiente es un delimitador
+	/*
+	if (s[i] == c)
+		count++;
+	i++;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i - 1] != c)
+			count++;
+		i++;
+	}
+	*/
+
+	// Opcion 2: Cuento el numero de delimitadores
+	/*
+	while (s[i])
+	{
+		if (s[i] == c)
+			count++;
+		i++;
+	}
+	*/
+
+-------------------------------------------------------------------------------------------------------------------
+
+RESERVA DE MEMORIA
+
+	//dst = malloc((ft_strlen(s) - num_char + count_word) * sizeof(char *));
+
+ALGORITMO PARA RESERVAR ARRAY DE MEMORIA
+
+	#include <stdlib.h>
+
+	char **allocate_memory(int rows, int cols) {
+		char **array = malloc(rows * sizeof(char *));
+		if(array == NULL) {
+			// handle error
+			return NULL;
+		}
+
+		for(int i = 0; i < rows; i++) {
+			array[i] = malloc(cols * sizeof(char));
+			if(array[i] == NULL) {
+				// handle error
+				return NULL;
+			}
+		}
+
+		return array;
+	}
+
+	static char **alg(char const *s, char c) {
+		int rows = count_rows(s, c); // función hipotética para contar las filas
+		int cols = count_cols(s, c); // función hipotética para contar las columnas
+
+		char **dst = allocate_memory(rows, cols);
+		if(dst == NULL) {
+			// handle error
+			return NULL;
+		}
+
+		// ... el resto de tu código ...
+
+		return dst;
+	}
+
+-------------------------------------------------------------------------------------------------------------------
+
+COMPROBACIONES:
+
+	char **tab;
+
+	tab  = ft_split("  tripouille  42  ", ' ');
+	printf (".  tripouille  42  .: %s \n", tab);
+
+	tab = ft_split("tripouille", 0);
+	printf (".tripouille.: %s \n", tab);
+			
+	tab = ft_split("     ", ' ');
+	printf (".     .: %s \n", tab);
+
+	// char * invalidReadCheck = new char; *invalidReadCheck = 0;
+	// tab = ft_split(invalidReadCheck, 0);
+
+	tab = ft_split("chinimala", ' ');
+	printf (".chinimala.: %s \n", tab);
+		
+	tab = ft_split("", ' ');
+	printf ("..: %s \n", tab);
+			
+	char * splitme;
+			
+	splitme = strdup("Tripouille");
+	printf ("%s:", splitme);
+	tab = ft_split(splitme, ' ');
+	printf ("%s \n", tab);
+			
+	splitme = strdup("Tripouille ");
+	printf ("%s:", splitme);
+	tab = ft_split(splitme, ' ');
+	printf ("%s \n", tab);
+			
+	splitme = strdup(" Tripouille");
+	printf ("%s:", splitme);
+	tab = ft_split(splitme, ' ');
+	printf ("%s \n", tab);
+
+	splitme = strdup(" Tripouille ");
+	printf ("%s:", splitme);
+	tab = ft_split(splitme, ' ');
+	printf ("%s \n", tab);
+
+	splitme = strdup("--1-2--3---4----5-----42");
+	printf ("%s:", splitme);
+	tab = ft_split(splitme, '-');
+	printf ("%s \n", tab);
+
+	char **result;
+			
+	result = ft_split("      split       this for   me  !       ", ' ');
+	printf (".      split       this for   me  !       .: %s \n", result);
+
+	result = ft_split("                  ", ' ');
+	printf (".                  .: %s \n", result);
+
+	result = ft_split("                  olol", ' ');
+	printf (".                  olol.: %s \n", result);
+
+	result = ft_split("olol                     ", ' ');
+	printf (".olol                     .: %s \n", result);
+
+	result = ft_split("", '\65');
+	printf ("..: %s \n", result);
+
+	result = ft_split("0 0 0 0 0 0 0 0 0", ' ');
+	printf (".0 0 0 0 0 0 0 0 0.: %s \n", result);
+
+	result = ft_split("split  ||this|for|me|||||!|", '|');
+	printf (".split  ||this|for|me|||||!|.: %s \n", result);
+
+	result = ft_split("      split       this for   me  !       ", ' ');
+	printf (".      split       this for   me  !       .: %s \n", result);
+
+
+	free(tab);
+	free(splitme);
+	free(result);
