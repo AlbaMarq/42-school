@@ -1,3 +1,14 @@
+DUDAS:
+
+	- Como se delimita ?? 
+	- Y si hay mas de un delimitador seguido ?? 
+	- Y si el delimitador está al inicio o al final ??
+	- ¿Qué pasa si tiene '\0' el string, eso cómo se toma?
+	- Cómo libero memoria?
+	- Mirar fallos estricto
+
+-------------------------------------------------------------------------------------------------------------------
+
 MAIN 
 
 int	main(void)
@@ -44,14 +55,6 @@ static size_t	num_chars(const char *s, char c)
 	}
 	return (num);
 }
-
--------------------------------------------------------------------------------------------------------------------
-
-DUDAS:
-
-	- Como se delimita ?? 
-	- Y si hay mas de un delimitador seguido ?? 
-	- Y si el delimitador está al inicio o al final ??
 
 -------------------------------------------------------------------------------------------------------------------
 
