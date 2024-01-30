@@ -6,12 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:17:14 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/30 20:17:14 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:22:29 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	count_words(const char *s, char c)
 {

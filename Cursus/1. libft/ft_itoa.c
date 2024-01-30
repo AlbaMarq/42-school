@@ -6,71 +6,68 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:19:15 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/30 20:20:45 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/30 23:47:27 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*strnum(int n)
-{
-	char	*aux;
-	int		i;
-
-	aux = NULL;
-	i = 0;
-	if (n >= 10)
-	{
-		aux[i] = (n % 10) + '0';
-		i++;
-		strnum((n / 10));
-	}
-	aux[i] = n + '0';
-	aux[++i] = '\0';
-	return (aux);
-}
-
-static char	*strinv(char *dst, char *aux, int sign)
+static char	*strnum(char *dst, int n, int len)
 {
 	int	i;
-	int	len;
 
-	len = ft_strlen(aux);
-	if (sign == 1)
+	i = 0;
+	if (n < 0)
 	{
-		i = 1;
+		n = -n;
 		dst[0] = '-';
 	}
-	else
-		i = 0;
-	dst = malloc((len + 1) * sizeof(char));
-	if (dst == NULL)
-		return (NULL);
 	while (i < len)
 	{
-		dst[i] = aux[len - i];
+		if (n >= 10)
+		{
+			dst[len - i - 1] = (n % 10) + '0';
+			n = (n / 10);
+		}
+		else
+		{
+			dst[len - i - 1] = n + '0';
+			break ;
+		}
 		i++;
 	}
+	dst[len] = '\0';
 	return (dst);
+}
+
+static int	numlen(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n < 0)
+	{
+		n = -n;
+		i++;
+	}
+	while (n >= 10)
+	{
+		n = (n / 10);
+		i++;
+	}
+	i++;
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*dst;
-	int		sign;
 
-	dst = NULL;
-	sign = 0;
 	if (n == -2147483648)
-		dst = "-2147483648";
-	else
-	{
-		if (n < 0)
-		{
-			n = -n;
-			sign = 1;
-		}
-		dst = strinv(dst, strnum(n), sign);
-	}
+		return (ft_strdup("-2147483648"));
+	dst = malloc((numlen(n) + 1) * sizeof(char));
+	if (dst == NULL)
+		return (NULL);
+	dst = strnum(dst, n, numlen(n));
 	return (dst);
 }
