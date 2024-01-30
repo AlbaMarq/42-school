@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:34:19 by albmarqu          #+#    #+#             */
-/*   Updated: 2023/11/08 16:34:31 by albmarqu         ###   ########.fr       */
+/*   Created: 2024/01/30 17:26:54 by albmarqu          #+#    #+#             */
+/*   Updated: 2024/01/30 17:32:34 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (*str != '\0')
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
 	{
-		write(1, str, 1);
-		str++;
+		if (n < 0)
+		{
+			n = -n;
+			write(fd, "-", 1);
+		}
+		if (n >= 10)
+			ft_putnbr_fd((n / 10), fd);
+		n = (n % 10) + '0';
+		write (fd, &n, 1);
 	}
 }
-/*
-int main(void) 
-{
-    char aux_str[] = "Hola, ¿qué tal?";
-    ft_putstr(aux_str);
-    return (0);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:17:14 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/29 21:41:42 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:17:14 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,37 @@ static size_t	count_words(const char *s, char c)
 	return (count);
 }
 
+static void	dst_free(char **dst, size_t i)
+{
+	while (i > 0)
+	{
+		free (dst[i - 1]);
+		i--;
+	}
+	free (dst);
+}
+
 static char	**split_rows(char const *s, char c, char **dst, size_t	count_word)
 {
 	size_t			i;
 	size_t			row;
-	size_t			len;
 	unsigned int	start;
 
 	i = 0;
 	row = count_word;
 	while (s[i] != '\0' && row > 0)
 	{
-		len = 0;
-		start = 0;
 		while (s[i] == c && s[i] != '\0')
 			i++;
 		start = i;
 		while (s[i] != c && s[i] != '\0')
-		{
-			len++;
 			i++;
+		dst[count_word - row] = ft_substr(s, start, (i - start));
+		if (dst[count_word - row] == NULL)
+		{
+			dst_free (dst, (count_word - row));
+			return (NULL);
 		}
-		dst[count_word - row] = ft_substr(s, start, len);
 		row--;
 	}
 	dst[count_word] = '\0';
