@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 21:14:52 by albmarqu          #+#    #+#              #
-#    Updated: 2024/01/30 20:18:44 by albmarqu         ###   ########.fr        #
+#    Updated: 2024/01/31 18:33:59 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,17 +46,34 @@ FILES = ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
+		
+BONUS_FILES =	ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c \
+				ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c \
+				ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 OBJECTS = $(FILES:.c=.o)
+BONUS_OBJECTS = $(BONUS_FILES:.c=.o)
 
 all: $(NAME)
+
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 $(OBJECTS): $(FILES)
 	gcc -Wall -Werror -Wextra -I. -c $(FILES)
 
+bonus: $(BONUS_OBJECTS)
+	ar rcs $(NAME) $(BONUS_OBJECTS)
+$(BONUS_OBJECTS): $(BONUS_FILES)
+	gcc -Wall -Werror -Wextra -I. -c $(BONUS_FILES)
+
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
