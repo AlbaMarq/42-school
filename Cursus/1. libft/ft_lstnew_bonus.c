@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:22:55 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/31 10:55:38 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:35:53 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = malloc(sizeof(t_list));
+	node = (t_list *)malloc(sizeof(t_list));
 	if (node == NULL)
 		return (NULL);
 	node->content = content;

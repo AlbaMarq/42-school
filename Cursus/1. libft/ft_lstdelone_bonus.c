@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:06:05 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/31 12:10:19 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:56:45 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del (lst->content);
-	free (lst);
+	if (lst)
+	{
+		if (del && lst->content)
+			del (lst->content);
+		free (lst);
+	}
 }

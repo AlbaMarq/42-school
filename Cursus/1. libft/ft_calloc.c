@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:49:01 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/22 19:04:23 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:22:56 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 	int		i;
 
 	i = count * size;
-	dst = malloc(i);
+	dst = (char *)malloc(i);
 	if (dst == NULL)
 		return (NULL);
 	while ((i - 1) >= 0)

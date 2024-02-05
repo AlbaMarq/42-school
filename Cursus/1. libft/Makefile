@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 21:14:52 by albmarqu          #+#    #+#              #
-#    Updated: 2024/01/31 18:33:59 by albmarqu         ###   ########.fr        #
+#    Updated: 2024/02/05 14:26:07 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,12 +62,12 @@ BONUS_OBJECTS = $(BONUS_FILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) libft.h
 	ar rcs $(NAME) $(OBJECTS)
 $(OBJECTS): $(FILES)
 	gcc -Wall -Werror -Wextra -I. -c $(FILES)
 
-bonus: $(BONUS_OBJECTS)
+bonus: $(BONUS_OBJECTS) libft.h
 	ar rcs $(NAME) $(BONUS_OBJECTS)
 $(BONUS_OBJECTS): $(BONUS_FILES)
 	gcc -Wall -Werror -Wextra -I. -c $(BONUS_FILES)
@@ -79,3 +79,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re

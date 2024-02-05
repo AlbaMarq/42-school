@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:25:30 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/22 19:05:36 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:43:06 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*ft_strdup(const char *s1)
 {
 	char	*dst;
 
-	dst = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	dst = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (dst == NULL)
-		return (0);
+		return (NULL);
 	ft_strcpy(dst, s1);
 	return (dst);
 }

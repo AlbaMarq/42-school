@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:01:32 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/31 13:06:54 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:57:56 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
-		f(lst->content);
+		if (f && lst->content)
+			f(lst->content);
 		lst = lst->next;
 	}
 }

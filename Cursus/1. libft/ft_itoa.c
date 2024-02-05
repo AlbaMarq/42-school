@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:19:15 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/30 23:47:27 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:35:23 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_itoa(int n)
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	dst = malloc((numlen(n) + 1) * sizeof(char));
+	dst = (char *)malloc((numlen(n) + 1) * sizeof(char));
 	if (dst == NULL)
 		return (NULL);
 	dst = strnum(dst, n, numlen(n));

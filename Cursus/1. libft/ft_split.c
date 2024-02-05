@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:17:14 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/30 20:22:29 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:36:57 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char	**split_rows(char const *s, char c, char **dst, size_t	count_word)
 		}
 		row--;
 	}
-	dst[count_word] = '\0';
+	dst[count_word] = NULL;
 	return (dst);
 }
 
@@ -74,7 +74,7 @@ char	**ft_split(char const *s, char c)
 	size_t	count_word;
 
 	count_word = count_words(s, c);
-	dst = malloc((count_word + 1) * sizeof(char *));
+	dst = (char **)malloc((count_word + 1) * sizeof(char *));
 	if (dst == NULL)
 		return (NULL);
 	dst = split_rows(s, c, dst, count_word);

@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:47:18 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/22 20:53:33 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:20:13 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	k = 0;
 	if (ft_strlen(s1) == 0)
 		return (ft_strdup(""));
-	while (set_char(s1[i], set))
+	while (s1[i] && set_char(s1[i], set))
 		i++;
 	while (set_char(s1[j], set) && (j - i) > 0)
 		j--;
-	dst = malloc((j - i + 2) * sizeof(char));
+	dst = (char *)malloc((j - i + 2) * sizeof(char));
 	if (dst == NULL)
 		return (NULL);
 	if (i != j)

@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:38:30 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/31 13:08:42 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:33:04 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <ctype.h>
-# include <string.h>
 
 typedef struct s_list
 {
