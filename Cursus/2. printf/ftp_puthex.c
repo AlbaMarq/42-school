@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ftp_puthex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 20:54:22 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/01/31 20:57:25 by albmarqu         ###   ########.fr       */
+/*   Created: 2024/02/07 20:04:35 by albmarqu          #+#    #+#             */
+/*   Updated: 2024/02/07 21:46:58 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../1. libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include "ft_printf.h"
 
-int	ft_printf(char const *, ...);
+int	ftp_puthex(unsigned long n, char cap, int bytes)
+{
+	char	*hex;
+
+	if (cap == 'x')
+		hex = "0123456789abcdef";
+	else
+		hex = "0123456789ABCDEF";
+	if (n >= 16)
+		bytes += ftp_puthex((n / 16), cap, bytes);
+	n = (n % 16);
+	write(1, &hex[n], 1);
+	bytes++;
+	return (bytes);
+}
