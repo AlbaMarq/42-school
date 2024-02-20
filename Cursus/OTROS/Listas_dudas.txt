@@ -1,2 +1,0 @@
-1. Lo he definido bien en el libft.h
-2. En el Makefile, lo de añadir la regla 'make bonus' ¿dónde se pone?
