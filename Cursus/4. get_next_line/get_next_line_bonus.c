@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:31:00 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/04/19 21:25:30 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/04/19 21:32:25 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -77,27 +77,27 @@ void	cleaning(char *join, char **storage, char **new_line)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage;
+	static char	*storage[OPEN_MAX];
 	char		*join;
 	char		*new_line;
 	int			num_read;
 
-	num_read = reading(fd, &storage);
-	join = ft_strdup(storage);
+	num_read = reading(fd, &storage[fd]);
+	join = ft_strdup(storage[fd]);
 	if (num_read == -1)
 	{
-		freee (&storage);
+		freee (&storage[fd]);
 		free (join);
 		return (NULL);
 	}
 	if (ft_strchr(join, '\n') == NULL)
 	{
-		freee (&storage);
+		freee (&storage[fd]);
 		return (join);
 	}
 	new_line = ft_substr(join, 0, ft_strchr(join, '\n') - join + 1);
-	freee (&storage);
-	cleaning (join, &storage, &new_line);
+	freee (&storage[fd]);
+	cleaning (join, &storage[fd], &new_line);
 	return (new_line);
 }
 /*
