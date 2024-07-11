@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: albmarqu <albmarqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 20:53:58 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/02/07 22:09:39 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:02:12 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	var_type(char s, va_list args)
 	else if (s == 's')
 		bytes = ftp_putstr(va_arg(args, char *));
 	else if (s == 'p')
-	{
-		bytes = write(1, "0x", 2);
-		bytes += ftp_puthex(va_arg(args, unsigned long), 'x', 0);
-	}
+		bytes = isput(args);
 	else if (s == 'd' || s == 'i')
 		bytes = ftp_putnbr(va_arg(args, int), 0);
 	else if (s == 'u')

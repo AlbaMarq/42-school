@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: albmarqu <albmarqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 20:54:22 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/02/07 22:10:21 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:12:21 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	ftp_putchar(int c);
 int	ftp_putstr(char *str);
 int	ftp_putnbr(long n, int bytes);
 int	ftp_puthex(unsigned long n, char cap, int bytes);
+int	isput(va_list args);
 
 #endif

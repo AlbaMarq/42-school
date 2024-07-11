@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftp_puthex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: albmarqu <albmarqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 20:04:35 by albmarqu          #+#    #+#             */
-/*   Updated: 2024/02/07 21:46:58 by albmarqu         ###   ########.fr       */
+/*   Updated: 2024/07/11 19:56:00 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,21 @@ int	ftp_puthex(unsigned long n, char cap, int bytes)
 	n = (n % 16);
 	write(1, &hex[n], 1);
 	bytes++;
+	return (bytes);
+}
+
+int	isput(va_list args)
+{
+	int				bytes;
+	unsigned long	p;
+
+	p = va_arg(args, unsigned long);
+	if (p == 0)
+		bytes = write(1, "(nil)", 5);
+	else
+	{
+		bytes = write(1, "0x", 2);
+		bytes += ftp_puthex(p, 'x', 0);
+	}
 	return (bytes);
 }
